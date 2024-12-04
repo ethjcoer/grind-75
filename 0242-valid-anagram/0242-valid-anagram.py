@@ -17,11 +17,11 @@ class Solution:
         hashmapT = {}
 
         # Iterate over both strings simultaneously.
-        for a, b in zip(s, t):
+        for _s, _t in zip(s, t):
             # The hashmaps are populated with characters as keys and their
             # number of instances as values.
-            hashmapS[a] = 1 if a not in hashmapS else hashmapS[a] + 1
-            hashmapT[b] = 1 if b not in hashmapT else hashmapT[b] + 1
+            hashmapS[_s] = 1 + hashmapS.get(_s, 0)
+            hashmapT[_t] = 1 + hashmapT.get(_t, 0)
 
         # Compare the two hashmaps to check if the strings are anagrams.
         return hashmapS == hashmapT
